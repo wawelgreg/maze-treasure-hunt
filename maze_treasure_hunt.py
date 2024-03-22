@@ -69,6 +69,7 @@ def generator(rows_l, cols_l, wall):
 	return maze, trea_r, trea_c
 	
 log.info("Generating maze.")
+print "Generating maze. Please wait..."
 matrix, trea_r, trea_c = generator(HEIGHT, WIDTH, WALL)
 
 
@@ -127,8 +128,6 @@ def traverse(m, r, c, l):
 	level = l
 	prefix = "level%d" %(level)
 	shuffled_look = random.sample(look, len(look))
-	#shuffled_look = random.shuffle(copy.copy(look))
-	#shuffled_look = list(look)
 	look_idx = 0
 	
 	while True:
@@ -153,15 +152,17 @@ def traverse(m, r, c, l):
 		else:
 			draw(pad)
 		
-		if CENTERED:
-			pad.refresh(0,0, 0,0, curses.LINES-1,curses.COLS-1)
-		else:
-			pad.refresh(0,0, 0,0, curses.LINES-1,curses.COLS-1)
+		pad.refresh(0,0, 0,0, curses.LINES-1,curses.COLS-1)
+
+		
 		log.debug("%s At r:%r c:%r", prefix, row, col)
 		matrix[row][col] = TAIL
+
 		while look_idx < len(shuffled_look):
 			time.sleep(FRAME_SLEEP)
+
 			sr, sc = shuffled_look[look_idx]
+
 			look_idx += 1
 			log.debug("%s Checking %r, %r", prefix, (row+sr), (col+sc))
 
@@ -186,30 +187,17 @@ def traverse(m, r, c, l):
 			log.debug("%s %r at r:%r, c:%r", prefix, ' ', (row+sr), (col+sc))
 			
 			# "recursive" search from sr, sc further (New local state)
-			#row = row+sr
-			#col = col+sc
-			#level = level+1
 			p = "level%d" %(level)
-			#shuffled_look = list(look)
-			#look_idx = 0
-			#shuffled_look = random.shuffle(list(look))	
-			# push goes here
 			
 			log.debug("Pushing to stack len:%r", len(stack))
 			stack.append((row+sr, col+sc, level+1, p, random.sample(look, len(look)), 0))
 			continue
-			#res = traverse(m, row+sr, col+sc, level+1)
-			#if res is not None:
-				#return res
-		# if stack empty - return None, we did not find shit
+
 		if len(stack) == 0:
 			return None		
 
-		# pop goes here
 		log.debug("Popping from stack len:%r", len(stack))
 		row, col, level, prefix, shuffled_look, look_idx = stack.pop()
-
-	# should never reach here I think
 	
 	return None
 
