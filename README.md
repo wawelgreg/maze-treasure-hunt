@@ -8,5 +8,3 @@ Maze generation and automatic treasure hunt mini-game program.
 
 - Meant to be run in shell/terminal.
 - Uses Python [Curses](https://docs.python.org/3/howto/curses.html).
-
-# Background
