@@ -18,11 +18,11 @@ TREASURE = 'T'
 
 # Generator
 MIN_L = 2 #20
-MAX_L = 2 #30i
-MIN_N = 50000 #200
-MAX_N = 50000 #300
-GEN_ROWS = 300 #100
-GEN_COLS = 300 #100
+MAX_L = 2 #30
+MIN_N = 25 #200
+MAX_N = 25 #300
+GEN_ROWS = 10 #100
+GEN_COLS = 10 #100
 
 
 log.basicConfig(format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s',level=log.DEBUG, filename='mth.log', datefmt='%Y-%m-%dT%H:%M:%S%z')
@@ -62,7 +62,7 @@ def generator(rows_l, cols_l, wall):
 				stack.append((nr,nc))
 				break
 
-	trea_r, trea_c = -1, -2 # Bottom right end
+	trea_r, trea_c = rows_l-1, cols_l-2 # Bottom right end
 	maze[trea_r][trea_c] = TREASURE
 	maze[0][1] = 'S' # Top left start
 
@@ -92,14 +92,9 @@ def draw_centered(pad, coord_r, coord_c, h, w):
 			fcp = coord_c-(w//2)+cprint
 			pad.addch(rprint,cprint, lookup_matrix_safe(frp, fcp))
 	
-	# trea_r, trea_c
-
-	# Calculate distance: (r2-r1)/(x2-x1)
-
-	#distance = math.dist([coor_r, trea_r], [coord_c, trea_c])
 	p1 = (coord_r, coord_c)
-	p2 = (coord_c, trea_c)
-	distance = math.sqrt(((p1[0] - p2[0]) ** 2) + ((p1[1] - p2[1]) ** 2))
+	p2 = (trea_r, trea_c)
+	distance = math.hypot((p2[1]-p1[1]), (p2[0]-p1[0]))
 
 	pad.addstr(0,0, "Distance to {}: {}".format(TREASURE, distance))
 
