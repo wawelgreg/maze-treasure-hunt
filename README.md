@@ -58,12 +58,12 @@ The steps of the *traverse(m, r, c, l)* function are as follows:
 ## Usage
 
 To run, call the executable python file *maze_treasure_hunt.py* from the command line:
-"""
+```
 ./maze_treasure_hunt.py
-"""
+```
 
 The constants at the top of *maze_treasure_hunt.py* can be modified as you please:
-"""
+```
 FRAME_SLEEP = 0.01 # how long a frame should last
 WIDTH_C = 60 # Centered view width
 HEIGHT_C = 30 # Centered view height
@@ -73,4 +73,4 @@ CENTERED = True
 WALL = '\xe2'
 TAIL = '='
 TREASURE = 'T'
-"""
+```
