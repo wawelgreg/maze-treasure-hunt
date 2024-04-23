@@ -175,8 +175,8 @@ def traverse(m, r, c, l):
 				continue
 
 			if matrix[row+sr][col+sc] == 'T':
-				log.debug("%s Found T! at r:%r c:%r", prefix, row, col)
-				return [col, row]
+				log.debug("%s Found T! at r:%r c:%r", prefix, row+sr, col+sc)
+				return [col+sc, row+sr]
 			
 					
 			log.debug("%s %r at r:%r, c:%r", prefix, ' ', (row+sr), (col+sc))
