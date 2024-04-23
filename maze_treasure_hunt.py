@@ -9,21 +9,12 @@ import math
 FRAME_SLEEP = 0.01 # how long a frame should last
 WIDTH_C = 60 # Centered view width
 HEIGHT_C = 30 # Centered view height
-WIDTH = 1000 # Uncentered view width
-HEIGHT = 1000 # Uncentered view height
+WIDTH = 200 # Maze Hidth
+HEIGHT = 100 # Maze Height
 CENTERED = True
 WALL = '\xe2'
 TAIL = '='
 TREASURE = 'T'
-
-# Generator
-MIN_L = 2 #20
-MAX_L = 2 #30
-MIN_N = 25 #200
-MAX_N = 25 #300
-GEN_ROWS = 10 #100
-GEN_COLS = 10 #100
-
 
 log.basicConfig(format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s',level=log.DEBUG, filename='mth.log', datefmt='%Y-%m-%dT%H:%M:%S%z')
 
