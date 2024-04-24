@@ -74,3 +74,24 @@ WALL = '\xe2'
 TAIL = '='
 TREASURE = 'T'
 ```
+
+*FRAME_SLEEP*: float: This number constant corresponds to the wait time between frame. Pretty much a tickrate of sorts. A higher value will result in slower progression of maze generation.
+(1 = One second)
+
+*WIDTH_C*: int: This number constant corresponds to the width of the viewing window of the centered view of the maze treasure hunting traversal.
+
+*HEIGHT_C*: int: This number constant corresponds to the height of the viewing window of the centered view of the maze treasure hunting traversal.
+
+*WIDTH*: int: This number constant corresponds to the width of the maze matrix geenrated.
+
+*HEIGTH*: int: This number constant corresponds to the heigth of the maze matrix geenrated.
+
+*CENTERED*: boolean: This boolean value correpsonds to how the visualization of the maze traversal will be displayed.
+- True: Centered view: The treasure hunter will be at the center of the screen, being followed by the visualizer.
+- False: Static display of the entire maze matrix from the top left corner of the screen all the way down and right to the bottom right corner of the maze. (A maze larger than 100 width and 50 hegiht will most likely be not fully visible on your terminal screen)
+
+*WALL*: char: This character constant corresponds to the walls displayed on the maze matrix.
+
+*TAIL*: char: This character constant corresponds to the coordinates of the maze that the treasure hunter already visited.
+
+*TREASURE*: char: This character constant corresponds to the treasure displayed on the maze matrix that the treasure hunter is in search for.
